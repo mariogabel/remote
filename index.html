@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dynamic Links</title>
+  <title>Dynamické prepojenie</title>
 <style>
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -83,14 +83,14 @@ button[type="submit"]:hover {
     async function copyToClipboard(text) {
       try {
         await navigator.clipboard.writeText(text);
-        alert("Address copied to clipboard!");
+        alert("Dómena skopírovaná.");
       } catch (err) {
-        console.error("Failed to copy:", err);
+        console.error("Nepodarilo sa mi CTRLC:", err);
         // Handle permission denial or other errors gracefully (optional)
         if (err.name === 'PermissionsPolicyViolation') {
-          alert("Clipboard permission denied. Please allow clipboard access to copy addresses.");
+          alert("Povoľ mi kopírovať ak chceš mať po ruke adresu počítača.");
         } else {
-          alert("Copy failed. Please try again.");
+          alert("CTRLC nevyšlo. Skús to znovu.");
         }
       }
     }
@@ -122,12 +122,12 @@ button[type="submit"]:hover {
   </script>
 </head>
 <body>
-  <h1>Dynamic Links</h1>
-  <p>Enter an ID and click "Submit" or press Enter to open the page in a new tab and copy the address to your clipboard:</p>
+  <h1>DynLink</h1>
+  <p>Vlož číslo lisu a klikni "Pripojiť" alebo stlať Enter aby sa ti otvorila nová karta a skopírovala doména:</p>
 
   <form onsubmit="handleFormSubmit(event)">
     <label for="idInput">ID:</label>
-    <input type="text" id="idInput" name="id" required onkeypress="handleEnterPress(event)"> <button type="submit">Submit</button>
+    <input type="text" id="idInput" name="id" required onkeypress="handleEnterPress(event)"> <button type="submit">Dúfam, že mi to potvrdí.</button>
   </form>
 
 </body>
