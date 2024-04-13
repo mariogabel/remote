@@ -123,14 +123,15 @@
     // Function to copy the JavaScript code
     function copyJavaScriptCode() {
       const jsCode = `
-const usernameInput = document.getElementById('PlantAdmin_PU');
-usernameInput.value = "example_username";
+// Vyplní username
+const usernameInput = document.getElementById('username_input');
+usernameInput.value = "PlantAdmin_PU";
 // Vyplní password
-const passwordInput = document.getElementById('Pn3umatika');
-passwordInput.value = "example_password";
+const passwordInput = document.getElementById('password_input');
+passwordInput.value = "Pn3umat1ka";
 // Vyplní domain
-const domainInput = document.getElementById('putm34cug5401');
-domainInput.value = "example_domain";
+const domainInput = document.getElementById('domain_input');
+domainInput.value = "putm34cug5401";
 `;
       copyToClipboard(jsCode);
     }
