@@ -79,52 +79,51 @@ button[type="submit"]:hover {
 }
 </style>
   <script>
-    // Function to copy text to clipboard with user permission
-    async function copyToClipboard(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        alert("Dómena skopírovaná.");
-      } catch (err) {
-        console.error("Nepodarilo sa mi CTRLC:", err);
-        // Handle permission denial or other errors gracefully (optional)
-        if (err.name === 'PermissionsPolicyViolation') {
-          alert("Povoľ mi kopírovať ak chceš mať po ruke adresu počítača.");
-        } else {
-          alert("CTRLC nevyšlo. Skús to znovu.");
-        }
-      }
+    // Jediná funkcia na kopírovanie textu do schránky
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("Dómena skopírovaná.");
+  } catch (err) {
+    console.error("Nepodarilo sa mi CTRLC:", err);
+    // Handle permission denial or other errors gracefully (optional)
+    if (err.name === 'PermissionsPolicyViolation') {
+      alert("Povoľ mi kopírovať, ak chceš mať po ruke adresu počítača.");
+    } else {
+      alert("CTRLC nevyšlo. Skús to znovu.");
     }
+  }
+}
 
-    // Function to handle form submission or Enter key press
-    function handleFormSubmit(event) {
-      // Check if event is triggered by form submission (button click)
-      if (event) {
-        event.preventDefault(); // Prevent default form submission behavior
-      }
-      var id = document.getElementById("idInput").value; // Get ID from input box
+// Funkcia na obsluhu odoslania formulára
+function handleFormSubmit(event) {
+  if (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+  }
 
-      if (id) { // Check if ID is entered
-        var baseLink = "https://putm34cu";
-        var address = "PUTM34CU" + id + "01";
-        copyToClipboard(address);
-        window.open(baseLink + id + "01:4343/", "_blank"); // Open in new tab
-      } else {
-        alert("Vlož číslo lisu."); // Alert if no ID is entered
-      }
-    }
+  var id = document.getElementById("idInput").value; // Get ID from input box
+  if (id) { // Check if ID is entered
+    var baseLink = "https://putm34cu";
+    var address = "PUTM34CU" + id + "01";
+    copyToClipboard(address); // Use the single copyToClipboard() function
+    window.open(baseLink + id + "01:4343/", "_blank"); // Open in new tab
+  } else {
+    alert("Vlož číslo lisu."); // Alert if no ID is entered
+  }
+}
 
-    // Function to handle Enter key press in the input field
-    function handleEnterPress(event) {
-      if (event.keyCode === 13) { // Check if Enter key is pressed
-        handleFormSubmit(); // Call the form submission function
-      }
-    }
+// Function to handle Enter key press in the input field
+function handleEnterPress(event) {
+  if (event.keyCode === 13) { // Check if Enter key is pressed
+    handleFormSubmit(); // Call the form submission function
+  }
+}
   </script>
 </head>
 <body>
   <h1>DynLink</h1>
   <p>Vlož číslo lisu.</p>
-  <a href="https://putm30ctts1101:4343/">Kliknite pre otvorenie HL. DOPRAVNÍK</a>
+  <a href="https://putm30ctts1101:4343/" onclick="copyToClipboard('const usernameInput = document.getElementById(\'username_input\'); usernameInput.value = \"PlantAdmin_PU"; // Vyplní password const passwordInput = document.getElementById(\'password_input\'); passwordInput.value = \"Pn3umat1ka"; // Vyplní domain const domainInput = document.getElementById(\'domain_input\'); domainInput.value = \"putm30ctts1101";'); return true;">Kliknite pre otvorenie HL. DOPRAVNÍK</a>
   <form onsubmit="handleFormSubmit(event)">
     <label for="idInput">ID:</label>
     <input type="text" id="idInput" name="id" required onkeypress="handleEnterPress(event)"> <button type="submit">Dúfam, že mi to potvrdí.</button>
